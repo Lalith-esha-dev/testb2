@@ -13,13 +13,14 @@ function renderAt(path) {
 }
 
 describe('AppNavigator', () => {
-  it('renders the bottom tab bar with all four tabs', () => {
+  it('renders the bottom tab bar with all tabs', () => {
     renderAt('/');
     const nav = screen.getByRole('navigation', { name: /primary/i });
     expect(nav).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /home/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /explore/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /profile/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /tasks/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /settings/i })).toBeInTheDocument();
   });
 
@@ -40,6 +41,13 @@ describe('AppNavigator', () => {
   it('renders the Profile screen at /profile', () => {
     renderAt('/profile');
     expect(screen.getByText('Guest User')).toBeInTheDocument();
+  });
+
+  it('renders the Tasks screen at /tasks', () => {
+    renderAt('/tasks');
+    expect(
+      screen.getByRole('heading', { name: 'Tasks' })
+    ).toBeInTheDocument();
   });
 
   it('renders the Settings screen at /settings', () => {
