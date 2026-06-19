@@ -1,0 +1,116 @@
+.settings-header {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 4px;
+}
+
+.settings-subheader {
+  font-size: 14px;
+  color: #888;
+  margin: 0 0 24px;
+}
+
+.settings-section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin: 0 0 12px;
+}
+
+.settings-card {
+  padding: 8px 24px;
+}
+
+.settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+}
+
+.settings-row-text {
+  flex: 1;
+  padding-right: 16px;
+}
+
+.settings-row-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin: 0;
+}
+
+.settings-row-description {
+  font-size: 13px;
+  color: #888;
+  margin: 2px 0 0;
+}
+
+.settings-divider {
+  height: 1px;
+  background-color: #e0e0e0;
+}
+
+.settings-info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+}
+
+.settings-info-label {
+  font-size: 15px;
+  color: #1a1a2e;
+  margin: 0;
+}
+
+.settings-info-value {
+  font-size: 15px;
+  color: #888;
+  margin: 0;
+}
+
+.settings-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.settings-switch input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  margin: 0;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.settings-switch-track {
+  position: absolute;
+  inset: 0;
+  background-color: #e0e0e0;
+  border-radius: 14px;
+  transition: background-color 0.15s ease;
+}
+
+.settings-switch-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  background-color: #f4f4f5;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.settings-switch input:checked ~ .settings-switch-track {
+  background-color: #c5c2f5;
+}
+
+.settings-switch input:checked ~ .settings-switch-track .settings-switch-thumb {
+  transform: translateX(22px);
+  background-color: #6c63ff;
+}

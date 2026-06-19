@@ -1,0 +1,62 @@
+.explore-header {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 4px;
+}
+
+.explore-subheader {
+  font-size: 14px;
+  color: #888;
+  margin: 0 0 24px;
+}
+
+.explore-item-button {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0 0 12px;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.explore-item-card {
+  padding: 18px 24px;
+}
+
+.explore-item-row {
+  display: flex;
+  align-items: center;
+}
+
+.explore-emoji {
+  font-size: 28px;
+  margin-right: 16px;
+}
+
+.explore-item-text {
+  flex: 1;
+}
+
+.explore-item-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin: 0 0 4px;
+}
+
+.explore-item-description {
+  font-size: 13px;
+  color: #888;
+  margin: 0;
+}
+
+.explore-chevron {
+  font-size: 28px;
+  color: #c5c2f5;
+  font-weight: 300;
+  line-height: 1;
+}
