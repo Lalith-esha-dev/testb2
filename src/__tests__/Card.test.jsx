@@ -50,4 +50,26 @@ describe('Card', () => {
     expect(container.firstChild).not.toHaveClass('card-tint-primary');
     expect(container.firstChild).not.toHaveClass('card-tint-accent');
   });
+
+  it('adds the elevated class when elevated prop is true', () => {
+    const { container } = render(<Card elevated>x</Card>);
+    expect(container.firstChild).toHaveClass('card-elevated');
+  });
+
+  it('does not add the elevated class by default', () => {
+    const { container } = render(<Card>x</Card>);
+    expect(container.firstChild).not.toHaveClass('card-elevated');
+  });
+
+  it('can combine elevated with tint and accent', () => {
+    const { container } = render(
+      <Card elevated accent tint="primary">
+        x
+      </Card>
+    );
+    expect(container.firstChild).toHaveClass('card');
+    expect(container.firstChild).toHaveClass('card-elevated');
+    expect(container.firstChild).toHaveClass('card-accent');
+    expect(container.firstChild).toHaveClass('card-tint-primary');
+  });
 });

@@ -12,10 +12,11 @@ export default function ProfileScreen() {
   return (
     <ScreenLayout scroll>
       <div className="profile-banner" aria-hidden="true">
+        <div className="profile-banner-accent" />
         <div className="profile-banner-pattern" />
       </div>
 
-      <Card className="profile-card">
+      <Card elevated className="profile-card">
         <div className="profile-avatar-ring">
           <div className="profile-avatar">
             <span className="profile-avatar-text">LK</span>

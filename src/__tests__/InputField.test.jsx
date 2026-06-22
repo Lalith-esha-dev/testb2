@@ -28,9 +28,17 @@ describe('InputField', () => {
     expect(screen.getByText('✏️')).toBeInTheDocument();
   });
 
+  it('wraps the icon in the icon-wrap container when provided', () => {
+    const { container } = render(<Harness icon="✏️" />);
+    const wrap = container.querySelector('.input-field-icon-wrap');
+    expect(wrap).not.toBeNull();
+    expect(wrap?.querySelector('.input-field-icon')).not.toBeNull();
+  });
+
   it('does not render an icon when none is provided', () => {
     const { container } = render(<Harness />);
     expect(container.querySelector('.input-field-icon')).toBeNull();
+    expect(container.querySelector('.input-field-icon-wrap')).toBeNull();
   });
 
   it('updates value as the user types', async () => {

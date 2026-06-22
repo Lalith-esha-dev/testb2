@@ -25,8 +25,8 @@ export default function InputField({
   return (
     <div className={wrapClasses}>
       {icon ? (
-        <span className="input-field-icon" aria-hidden="true">
-          {icon}
+        <span className="input-field-icon-wrap" aria-hidden="true">
+          <span className="input-field-icon">{icon}</span>
         </span>
       ) : null}
       <input

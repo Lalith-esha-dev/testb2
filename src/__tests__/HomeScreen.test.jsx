@@ -27,6 +27,14 @@ describe('HomeScreen', () => {
     ).toBeInTheDocument();
   });
 
+  it('renders the main accent card with the elevated class', () => {
+    const { container } = render(<HomeScreen />);
+    const homeCard = container.querySelector('.home-card');
+    expect(homeCard).not.toBeNull();
+    expect(homeCard).toHaveClass('card-elevated');
+    expect(homeCard).toHaveClass('card-accent');
+  });
+
   it('keeps the Say Hello button disabled when input is empty or whitespace', async () => {
     const user = userEvent.setup();
     render(<HomeScreen />);

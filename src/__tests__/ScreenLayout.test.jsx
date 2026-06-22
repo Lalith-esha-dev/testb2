@@ -32,14 +32,14 @@ describe('ScreenLayout', () => {
     expect(container.firstChild).toHaveClass('screen-scroll');
   });
 
-  it('renders the decorative top stripe and shape elements', () => {
+  it('renders the decorative background layers', () => {
     const { container } = render(
       <ScreenLayout>
         <span>x</span>
       </ScreenLayout>
     );
-    expect(container.querySelector('.screen-top-stripe')).not.toBeNull();
-    expect(container.querySelector('.screen-decor-large')).not.toBeNull();
-    expect(container.querySelector('.screen-decor-small')).not.toBeNull();
+    expect(container.querySelector('.screen-bg-top')).not.toBeNull();
+    expect(container.querySelector('.screen-bg-blob-primary')).not.toBeNull();
+    expect(container.querySelector('.screen-bg-blob-accent')).not.toBeNull();
   });
 });

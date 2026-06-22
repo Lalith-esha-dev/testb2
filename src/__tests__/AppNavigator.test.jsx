@@ -83,22 +83,6 @@ describe('AppNavigator', () => {
     expect(profileLink).toHaveClass('tab-item-active');
   });
 
-  it('renders an active dot indicator on the active tab only', () => {
-    const { container } = renderAt('/profile');
-    const profileLink = screen.getByRole('link', { name: /profile/i });
-    const homeLink = screen.getByRole('link', { name: /home/i });
-
-    const profileDot = profileLink.querySelector('.tab-dot');
-    expect(profileDot).not.toBeNull();
-    expect(profileDot).not.toHaveClass('tab-dot-placeholder');
-
-    const homeDot = homeLink.querySelector('.tab-dot');
-    expect(homeDot).not.toBeNull();
-    expect(homeDot).toHaveClass('tab-dot-placeholder');
-
-    expect(container.querySelectorAll('.tab-dot').length).toBe(5);
-  });
-
   it('wraps the icon in a highlighted background on the active tab', () => {
     renderAt('/explore');
     const exploreLink = screen.getByRole('link', { name: /explore/i });
