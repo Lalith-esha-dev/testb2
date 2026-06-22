@@ -13,7 +13,7 @@
   width: 88px;
   height: 88px;
   border-radius: 24px;
-  background-color: #ccfbf1;
+  background-color: #ffe4e6;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,8 +28,8 @@
 .detail-tag {
   font-size: 11px;
   font-weight: 800;
-  color: #0d9488;
-  background-color: #ccfbf1;
+  color: #e11d48;
+  background-color: #ffe4e6;
   padding: 4px 10px;
   border-radius: 8px;
   text-transform: uppercase;
@@ -76,7 +76,7 @@
 }
 
 .detail-button-accent {
-  background-color: #0d9488;
+  background-color: #e11d48;
 }
 
 .detail-button-text {

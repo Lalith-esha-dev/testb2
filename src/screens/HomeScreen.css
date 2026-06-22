@@ -36,7 +36,7 @@
 .home-button {
   width: 100%;
   height: 52px;
-  background-color: #4f46e5;
+  background-color: #6366f1;
   border: none;
   border-radius: 16px;
   display: flex;
@@ -55,7 +55,7 @@
 
 .home-button:disabled,
 .home-button-disabled {
-  background-color: #a5b4fc;
+  background-color: #c7d2fe;
   cursor: not-allowed;
   box-shadow: none;
 }
@@ -87,7 +87,7 @@
   width: 72px;
   height: 72px;
   border-radius: 36px;
-  background-color: #e0e7ff;
+  background-color: #eef2ff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -102,7 +102,7 @@
 .home-greeting {
   font-size: 26px;
   font-weight: 800;
-  color: #4f46e5;
+  color: #6366f1;
   text-align: center;
   margin: 0 0 4px;
 }
@@ -121,7 +121,7 @@
 .home-tip-title {
   font-size: 14px;
   font-weight: 800;
-  color: #0d9488;
+  color: #e11d48;
   margin: 0 0 6px;
 }
 

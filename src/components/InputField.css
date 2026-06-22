@@ -1,11 +1,11 @@
 .input-field-wrap {
   display: flex;
   align-items: center;
-  height: 54px;
+  height: 56px;
   border: 1.5px solid #e2e8f0;
   border-radius: 16px;
   background-color: #f8fafc;
-  padding: 0 14px;
+  padding: 0 6px;
   margin-bottom: 16px;
   box-sizing: border-box;
   transition: border-color 0.15s ease, background-color 0.15s ease,
@@ -13,14 +13,25 @@
 }
 
 .input-field-wrap-focused {
-  border-color: #4f46e5;
+  border-color: #6366f1;
   background-color: #ffffff;
-  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.18);
+}
+
+.input-field-icon-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #eef2ff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  flex-shrink: 0;
 }
 
 .input-field-icon {
   font-size: 18px;
-  margin-right: 10px;
   line-height: 1;
 }
 
@@ -33,7 +44,7 @@
   outline: none;
   font-family: inherit;
   height: 100%;
-  padding: 0;
+  padding: 0 12px 0 0;
   width: 100%;
 }
 

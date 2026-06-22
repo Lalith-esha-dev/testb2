@@ -34,7 +34,7 @@ export default function HomeScreen() {
           ))}
         </div>
 
-        <Card accent className="home-card">
+        <Card accent elevated className="home-card">
           {!greeted ? (
             <>
               <InputField

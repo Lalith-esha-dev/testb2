@@ -33,7 +33,7 @@ export default function TasksScreen() {
         {completed} of {tasks.length} completed
       </p>
 
-      <Card tint="primary" className="tasks-progress-card">
+      <Card tint="primary" elevated className="tasks-progress-card">
         <div className="tasks-progress-header">
           <span className="tasks-progress-title">Progress</span>
           <span className="tasks-progress-percent">{percent}%</span>

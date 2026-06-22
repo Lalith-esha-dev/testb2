@@ -44,10 +44,6 @@ function TabBar() {
                 </span>
               </span>
               <span className="tab-label">{tab.label}</span>
-              <span
-                className={isActive ? 'tab-dot' : 'tab-dot tab-dot-placeholder'}
-                aria-hidden="true"
-              />
             </>
           )}
         </NavLink>

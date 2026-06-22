@@ -51,6 +51,18 @@ describe('ProfileScreen', () => {
     expect(container.querySelector('.profile-banner-pattern')).not.toBeNull();
   });
 
+  it('renders the accent overlay on the banner', () => {
+    const { container } = render(<ProfileScreen />);
+    expect(container.querySelector('.profile-banner-accent')).not.toBeNull();
+  });
+
+  it('renders the profile card with the elevated class', () => {
+    const { container } = render(<ProfileScreen />);
+    const profileCard = container.querySelector('.profile-card');
+    expect(profileCard).not.toBeNull();
+    expect(profileCard).toHaveClass('card-elevated');
+  });
+
   it('applies the primary tint class to each stat card', () => {
     const { container } = render(<ProfileScreen />);
     const tinted = container.querySelectorAll('.profile-stat-card.card-tint-primary');

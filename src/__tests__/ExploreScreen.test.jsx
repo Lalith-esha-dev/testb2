@@ -38,6 +38,15 @@ describe('ExploreScreen', () => {
     });
   });
 
+  it('renders item cards with the elevated class', () => {
+    renderWithRouter();
+    const cards = document.querySelectorAll('.explore-item-card');
+    expect(cards.length).toBe(EXPLORE_ITEMS.length);
+    cards.forEach((card) => {
+      expect(card).toHaveClass('card-elevated');
+    });
+  });
+
   it('renders filter chips and filters items by tag', async () => {
     const user = userEvent.setup();
     renderWithRouter();

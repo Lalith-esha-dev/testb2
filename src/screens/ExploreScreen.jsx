@@ -38,7 +38,7 @@ export default function ExploreScreen() {
           className="explore-item-button"
           onClick={() => navigate(`/explore/${item.id}`)}
         >
-          <Card className="explore-item-card">
+          <Card elevated className="explore-item-card">
             <div className="explore-item-row">
               <span className="explore-emoji" aria-hidden="true">
                 {item.emoji}

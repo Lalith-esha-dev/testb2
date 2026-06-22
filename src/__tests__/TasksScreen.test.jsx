@@ -12,6 +12,14 @@ describe('TasksScreen', () => {
     expect(screen.getByText('1 of 4 completed')).toBeInTheDocument();
   });
 
+  it('renders the progress card with the elevated class', () => {
+    const { container } = render(<TasksScreen />);
+    const progressCard = container.querySelector('.tasks-progress-card');
+    expect(progressCard).not.toBeNull();
+    expect(progressCard).toHaveClass('card-elevated');
+    expect(progressCard).toHaveClass('card-tint-primary');
+  });
+
   it('renders all initial tasks as buttons with correct labels', () => {
     render(<TasksScreen />);
     expect(

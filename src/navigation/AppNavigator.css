@@ -2,7 +2,8 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #f4f6fb;
+  background-color: #f1f5f9;
+  position: relative;
 }
 
 .app-main {
@@ -10,17 +11,24 @@
   display: flex;
   flex-direction: column;
   min-height: 0;
+  padding-bottom: 96px;
 }
 
 .tab-bar {
+  position: fixed;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  margin: 0 auto;
+  max-width: 720px;
   display: flex;
   background-color: #ffffff;
-  border-top: 1px solid #e2e8f0;
-  height: 72px;
-  padding: 6px 0 10px;
-  position: sticky;
-  bottom: 0;
-  box-shadow: 0 -2px 8px rgba(15, 23, 42, 0.05);
+  border: 1px solid #e2e8f0;
+  height: 68px;
+  padding: 8px 0;
+  border-radius: 28px;
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.1);
+  z-index: 10;
 }
 
 .tab-item {
@@ -32,49 +40,37 @@
   text-decoration: none;
   color: #64748b;
   font-weight: 700;
-  gap: 0;
+  gap: 1px;
 }
 
 .tab-item-active {
-  color: #4f46e5;
+  color: #6366f1;
 }
 
 .tab-icon-wrap {
-  width: 38px;
-  height: 32px;
-  border-radius: 12px;
+  width: 40px;
+  height: 34px;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .tab-icon-wrap-active {
-  background-color: #e0e7ff;
+  background-color: #eef2ff;
 }
 
 .tab-emoji {
-  font-size: 20px;
+  font-size: 19px;
   line-height: 1;
 }
 
 .tab-emoji-inactive {
-  opacity: 0.4;
+  opacity: 0.38;
 }
 
 .tab-label {
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 700;
-  margin-top: 0;
-}
-
-.tab-dot {
-  width: 4px;
-  height: 4px;
-  border-radius: 2px;
-  background-color: #0d9488;
-  margin-top: 3px;
-}
-
-.tab-dot-placeholder {
-  background-color: transparent;
+  margin-top: 1px;
 }
