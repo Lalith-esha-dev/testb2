@@ -3,9 +3,33 @@ import ScreenLayout from '../components/ScreenLayout';
 import Card from '../components/Card';
 import './SettingsScreen.css';
 
-function SettingRow({ label, description, value, onValueChange }) {
+const SETTINGS = [
+  {
+    key: 'notifications',
+    icon: '🔔',
+    label: 'Notifications',
+    description: 'Receive alerts and updates',
+  },
+  {
+    key: 'darkMode',
+    icon: '🌙',
+    label: 'Dark Mode',
+    description: 'Switch to a dark theme',
+  },
+  {
+    key: 'analytics',
+    icon: '📈',
+    label: 'Analytics',
+    description: 'Help improve the app',
+  },
+];
+
+function SettingRow({ icon, label, description, value, onValueChange }) {
   return (
     <div className="settings-row">
+      <div className="settings-icon-circle" aria-hidden="true">
+        <span className="settings-icon">{icon}</span>
+      </div>
       <div className="settings-row-text">
         <p className="settings-row-label">{label}</p>
         {description ? (
@@ -29,9 +53,15 @@ function SettingRow({ label, description, value, onValueChange }) {
 }
 
 export default function SettingsScreen() {
-  const [notifications, setNotifications] = useState(true);
-  const [darkMode, setDarkMode] = useState(false);
-  const [analytics, setAnalytics] = useState(false);
+  const [values, setValues] = useState({
+    notifications: true,
+    darkMode: false,
+    analytics: false,
+  });
+
+  const toggle = (key) => {
+    setValues((prev) => ({ ...prev, [key]: !prev[key] }));
+  };
 
   return (
     <ScreenLayout scroll>
@@ -40,26 +70,20 @@ export default function SettingsScreen() {
 
       <h2 className="settings-section-title">Preferences</h2>
       <Card className="settings-card">
-        <SettingRow
-          label="Notifications"
-          description="Receive alerts and updates"
-          value={notifications}
-          onValueChange={setNotifications}
-        />
-        <div className="settings-divider" />
-        <SettingRow
-          label="Dark Mode"
-          description="Switch to a dark theme"
-          value={darkMode}
-          onValueChange={setDarkMode}
-        />
-        <div className="settings-divider" />
-        <SettingRow
-          label="Analytics"
-          description="Help improve the app"
-          value={analytics}
-          onValueChange={setAnalytics}
-        />
+        {SETTINGS.map((setting, index) => (
+          <div key={setting.key}>
+            <SettingRow
+              icon={setting.icon}
+              label={setting.label}
+              description={setting.description}
+              value={values[setting.key]}
+              onValueChange={() => toggle(setting.key)}
+            />
+            {index < SETTINGS.length - 1 ? (
+              <div className="settings-divider" />
+            ) : null}
+          </div>
+        ))}
       </Card>
 
       <h2 className="settings-section-title">App Info</h2>
@@ -71,7 +95,9 @@ export default function SettingsScreen() {
         <div className="settings-divider" />
         <div className="settings-info-row">
           <p className="settings-info-label">Build</p>
-          <p className="settings-info-value">Expo SDK 56</p>
+          <span className="settings-info-badge settings-info-badge-accent">
+            Expo SDK 56
+          </span>
         </div>
       </Card>
     </ScreenLayout>

@@ -15,7 +15,7 @@ describe('ProfileScreen', () => {
     const expected = [
       { label: 'Sessions', value: '12' },
       { label: 'Tasks Done', value: '48' },
-      { label: 'Streak', value: '5 days' },
+      { label: 'Streak', value: '5d' },
     ];
     for (const stat of expected) {
       expect(screen.getByText(stat.label)).toBeInTheDocument();
@@ -36,5 +36,24 @@ describe('ProfileScreen', () => {
     expect(
       screen.getByText(/multiple UI sections can live on one tab/i)
     ).toBeInTheDocument();
+  });
+
+  it('renders an emoji for each stat card', () => {
+    render(<ProfileScreen />);
+    expect(screen.getByText('📊')).toBeInTheDocument();
+    expect(screen.getByText('✅')).toBeInTheDocument();
+    expect(screen.getByText('🔥')).toBeInTheDocument();
+  });
+
+  it('renders the decorative banner above the profile card', () => {
+    const { container } = render(<ProfileScreen />);
+    expect(container.querySelector('.profile-banner')).not.toBeNull();
+    expect(container.querySelector('.profile-banner-pattern')).not.toBeNull();
+  });
+
+  it('applies the primary tint class to each stat card', () => {
+    const { container } = render(<ProfileScreen />);
+    const tinted = container.querySelectorAll('.profile-stat-card.card-tint-primary');
+    expect(tinted.length).toBe(3);
   });
 });

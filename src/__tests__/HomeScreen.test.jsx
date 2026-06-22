@@ -12,6 +12,21 @@ describe('HomeScreen', () => {
     ).toBeInTheDocument();
   });
 
+  it('renders the three quick-action chips', () => {
+    render(<HomeScreen />);
+    expect(screen.getByRole('button', { name: /say hi/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /^explore$/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /^tasks$/i })).toBeInTheDocument();
+  });
+
+  it('renders the accent tip card', () => {
+    render(<HomeScreen />);
+    expect(screen.getByText(/💡 Tip/)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Use the tab bar below to jump between screens/i)
+    ).toBeInTheDocument();
+  });
+
   it('keeps the Say Hello button disabled when input is empty or whitespace', async () => {
     const user = userEvent.setup();
     render(<HomeScreen />);
@@ -33,7 +48,8 @@ describe('HomeScreen', () => {
     expect(button).toBeEnabled();
     await user.click(button);
 
-    expect(screen.getByText('👋 Hello, Alice!')).toBeInTheDocument();
+    expect(screen.getByText('Hello, Alice!')).toBeInTheDocument();
+    expect(screen.getByText('Great to see you here.')).toBeInTheDocument();
     expect(
       screen.getByRole('button', { name: /start over/i })
     ).toBeInTheDocument();
@@ -44,7 +60,7 @@ describe('HomeScreen', () => {
     render(<HomeScreen />);
     const input = screen.getByPlaceholderText('Enter your name...');
     await user.type(input, 'Bob{Enter}');
-    expect(screen.getByText('👋 Hello, Bob!')).toBeInTheDocument();
+    expect(screen.getByText('Hello, Bob!')).toBeInTheDocument();
   });
 
   it('resets the form when Start Over is clicked', async () => {
@@ -70,7 +86,7 @@ describe('HomeScreen', () => {
     const longName = 'A'.repeat(120);
     await user.type(screen.getByPlaceholderText('Enter your name...'), longName);
     await user.click(screen.getByRole('button', { name: /say hello/i }));
-    expect(screen.getByText(`👋 Hello, ${longName}!`)).toBeInTheDocument();
+    expect(screen.getByText(`Hello, ${longName}!`)).toBeInTheDocument();
   });
 
   it('keeps the greeting visible after rapid repeated clicks on Say Hello', async () => {
@@ -80,7 +96,7 @@ describe('HomeScreen', () => {
     await user.type(input, 'Dan');
     const button = screen.getByRole('button', { name: /say hello/i });
     await user.click(button);
-    expect(screen.getByText('👋 Hello, Dan!')).toBeInTheDocument();
+    expect(screen.getByText('Hello, Dan!')).toBeInTheDocument();
 
     const startOver = screen.getByRole('button', { name: /start over/i });
     fireEvent.click(startOver);

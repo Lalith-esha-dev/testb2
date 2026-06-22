@@ -27,4 +27,27 @@ describe('Card', () => {
     const { container } = render(<Card style={{ marginTop: 10 }}>x</Card>);
     expect(container.firstChild).toHaveStyle({ marginTop: '10px' });
   });
+
+  it('adds the accent class when accent prop is true', () => {
+    const { container } = render(<Card accent>x</Card>);
+    expect(container.firstChild).toHaveClass('card-accent');
+  });
+
+  it('adds the primary tint class when tint="primary"', () => {
+    const { container } = render(<Card tint="primary">x</Card>);
+    expect(container.firstChild).toHaveClass('card-tint-primary');
+    expect(container.firstChild).not.toHaveClass('card-tint-accent');
+  });
+
+  it('adds the accent tint class when tint="accent"', () => {
+    const { container } = render(<Card tint="accent">x</Card>);
+    expect(container.firstChild).toHaveClass('card-tint-accent');
+    expect(container.firstChild).not.toHaveClass('card-tint-primary');
+  });
+
+  it('does not add tint classes when tint is unknown', () => {
+    const { container } = render(<Card tint="bogus">x</Card>);
+    expect(container.firstChild).not.toHaveClass('card-tint-primary');
+    expect(container.firstChild).not.toHaveClass('card-tint-accent');
+  });
 });

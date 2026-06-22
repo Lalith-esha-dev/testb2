@@ -31,7 +31,34 @@ describe('ExploreScreen', () => {
       expect(screen.getByText(item.title)).toBeInTheDocument();
       expect(screen.getByText(item.description)).toBeInTheDocument();
     });
-    expect(screen.getAllByRole('button')).toHaveLength(EXPLORE_ITEMS.length);
+    EXPLORE_ITEMS.forEach((item) => {
+      expect(
+        screen.getByRole('button', { name: new RegExp(item.title, 'i') })
+      ).toBeInTheDocument();
+    });
+  });
+
+  it('renders filter chips and filters items by tag', async () => {
+    const user = userEvent.setup();
+    renderWithRouter();
+    const filterGroup = screen.getByRole('group', { name: /filters/i });
+    expect(filterGroup).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: /^all$/i })
+    ).toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: /^tips$/i }));
+    expect(
+      screen.getByRole('button', { name: /best practices/i })
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByRole('button', { name: /getting started/i })
+    ).not.toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: /^all$/i }));
+    expect(
+      screen.getByRole('button', { name: /getting started/i })
+    ).toBeInTheDocument();
   });
 
   it('navigates to the detail route when an item is clicked', async () => {

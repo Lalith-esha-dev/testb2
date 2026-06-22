@@ -13,13 +13,14 @@ function renderAt(path) {
 }
 
 describe('AppNavigator', () => {
-  it('renders the bottom tab bar with all four tabs', () => {
+  it('renders the bottom tab bar with all tabs', () => {
     renderAt('/');
     const nav = screen.getByRole('navigation', { name: /primary/i });
     expect(nav).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /home/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /explore/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /profile/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /tasks/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /settings/i })).toBeInTheDocument();
   });
 
@@ -40,6 +41,13 @@ describe('AppNavigator', () => {
   it('renders the Profile screen at /profile', () => {
     renderAt('/profile');
     expect(screen.getByText('Guest User')).toBeInTheDocument();
+  });
+
+  it('renders the Tasks screen at /tasks', () => {
+    renderAt('/tasks');
+    expect(
+      screen.getByRole('heading', { name: 'Tasks' })
+    ).toBeInTheDocument();
   });
 
   it('renders the Settings screen at /settings', () => {
@@ -73,5 +81,28 @@ describe('AppNavigator', () => {
     renderAt('/profile');
     const profileLink = screen.getByRole('link', { name: /profile/i });
     expect(profileLink).toHaveClass('tab-item-active');
+  });
+
+  it('renders an active dot indicator on the active tab only', () => {
+    const { container } = renderAt('/profile');
+    const profileLink = screen.getByRole('link', { name: /profile/i });
+    const homeLink = screen.getByRole('link', { name: /home/i });
+
+    const profileDot = profileLink.querySelector('.tab-dot');
+    expect(profileDot).not.toBeNull();
+    expect(profileDot).not.toHaveClass('tab-dot-placeholder');
+
+    const homeDot = homeLink.querySelector('.tab-dot');
+    expect(homeDot).not.toBeNull();
+    expect(homeDot).toHaveClass('tab-dot-placeholder');
+
+    expect(container.querySelectorAll('.tab-dot').length).toBe(5);
+  });
+
+  it('wraps the icon in a highlighted background on the active tab', () => {
+    renderAt('/explore');
+    const exploreLink = screen.getByRole('link', { name: /explore/i });
+    const iconWrap = exploreLink.querySelector('.tab-icon-wrap');
+    expect(iconWrap).toHaveClass('tab-icon-wrap-active');
   });
 });
