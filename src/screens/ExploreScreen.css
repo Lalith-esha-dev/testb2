@@ -1,14 +1,22 @@
 .explore-header {
-  font-size: 32px;
-  font-weight: 700;
-  color: #1a1a2e;
+  font-size: 28px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.6px;
   margin: 0 0 4px;
 }
 
 .explore-subheader {
-  font-size: 14px;
-  color: #888;
-  margin: 0 0 24px;
+  font-size: 15px;
+  color: #64748b;
+  line-height: 22px;
+  margin: 0 0 18px;
+}
+
+.explore-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
 }
 
 .explore-item-button {
@@ -17,14 +25,14 @@
   background: none;
   border: none;
   padding: 0;
-  margin: 0 0 12px;
+  margin: 0 0 10px;
   cursor: pointer;
   font: inherit;
   text-align: left;
 }
 
 .explore-item-card {
-  padding: 18px 24px;
+  padding: 14px 24px;
 }
 
 .explore-item-row {
@@ -33,30 +41,61 @@
 }
 
 .explore-emoji {
-  font-size: 28px;
+  width: 50px;
+  height: 50px;
+  border-radius: 16px;
+  background-color: #e0e7ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-right: 16px;
+  font-size: 24px;
+  flex-shrink: 0;
 }
 
 .explore-item-text {
   flex: 1;
+  min-width: 0;
+}
+
+.explore-item-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 800;
+  color: #0d9488;
+  background-color: #ccfbf1;
+  padding: 2px 8px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 4px;
 }
 
 .explore-item-title {
-  font-size: 17px;
-  font-weight: 600;
-  color: #1a1a2e;
-  margin: 0 0 4px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 2px;
 }
 
 .explore-item-description {
   font-size: 13px;
-  color: #888;
+  color: #64748b;
+  line-height: 18px;
   margin: 0;
 }
 
 .explore-chevron {
-  font-size: 28px;
-  color: #c5c2f5;
-  font-weight: 300;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #e0e7ff;
+  color: #4f46e5;
+  font-weight: 700;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
   line-height: 1;
 }

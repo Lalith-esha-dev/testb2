@@ -1,37 +1,111 @@
 .tasks-header {
-  font-size: 32px;
-  font-weight: 700;
-  color: #1a1a2e;
+  font-size: 28px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.6px;
   margin: 0 0 4px;
 }
 
 .tasks-subheader {
+  font-size: 15px;
+  color: #64748b;
+  line-height: 22px;
+  margin: 0 0 18px;
+}
+
+.tasks-progress-card {
+  padding: 18px 24px;
+  margin-bottom: 16px;
+}
+
+.tasks-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.tasks-progress-title {
   font-size: 14px;
-  color: #888;
-  margin: 0 0 24px;
+  font-weight: 700;
+  color: #4f46e5;
+}
+
+.tasks-progress-percent {
+  font-size: 18px;
+  font-weight: 800;
+  color: #4f46e5;
+}
+
+.tasks-progress-track {
+  height: 10px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.tasks-progress-fill {
+  height: 100%;
+  background-color: #4f46e5;
+  border-radius: 5px;
+  transition: width 0.2s ease;
+}
+
+.tasks-done-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 24px;
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+.tasks-done-emoji {
+  font-size: 32px;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.tasks-done-title {
+  font-size: 17px;
+  font-weight: 800;
+  color: #0d9488;
+  margin: 0 0 4px;
+}
+
+.tasks-done-sub {
+  font-size: 13px;
+  color: #64748b;
+  margin: 0;
 }
 
 .tasks-item-button {
   display: block;
   width: 100%;
   padding: 0;
-  margin: 0 0 12px;
+  margin: 0 0 10px;
   border: none;
   background: transparent;
   text-align: left;
   cursor: pointer;
   font: inherit;
   color: inherit;
+  transition: opacity 0.15s ease;
+}
+
+.tasks-item-button-done {
+  opacity: 0.75;
 }
 
 .tasks-item-button:focus-visible {
-  outline: 2px solid #6c63ff;
+  outline: 2px solid #4f46e5;
   outline-offset: 2px;
-  border-radius: 12px;
+  border-radius: 16px;
 }
 
 .tasks-card {
-  padding: 16px 24px;
+  padding: 14px 24px;
 }
 
 .tasks-row {
@@ -40,10 +114,10 @@
 }
 
 .tasks-checkbox {
-  width: 26px;
-  height: 26px;
-  border-radius: 8px;
-  border: 2px solid #e0e0e0;
+  width: 28px;
+  height: 28px;
+  border-radius: 10px;
+  border: 2px solid #a5b4fc;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -54,14 +128,14 @@
 }
 
 .tasks-checkbox-done {
-  background-color: #6c63ff;
-  border-color: #6c63ff;
+  background-color: #0d9488;
+  border-color: #0d9488;
 }
 
 .tasks-checkmark {
-  color: #fff;
+  color: #ffffff;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1;
 }
 
@@ -69,10 +143,10 @@
   flex: 1;
   font-size: 16px;
   font-weight: 600;
-  color: #1a1a2e;
+  color: #0f172a;
 }
 
 .tasks-label-done {
-  color: #888;
+  color: #64748b;
   text-decoration: line-through;
 }

@@ -30,13 +30,24 @@ function TabBar() {
           {({ isActive }) => (
             <>
               <span
-                className="tab-icon"
-                style={{ opacity: isActive ? 1 : 0.5 }}
+                className={
+                  isActive
+                    ? 'tab-icon-wrap tab-icon-wrap-active'
+                    : 'tab-icon-wrap'
+                }
                 aria-hidden="true"
               >
-                {tab.emoji}
+                <span
+                  className={isActive ? 'tab-emoji' : 'tab-emoji tab-emoji-inactive'}
+                >
+                  {tab.emoji}
+                </span>
               </span>
               <span className="tab-label">{tab.label}</span>
+              <span
+                className={isActive ? 'tab-dot' : 'tab-dot tab-dot-placeholder'}
+                aria-hidden="true"
+              />
             </>
           )}
         </NavLink>

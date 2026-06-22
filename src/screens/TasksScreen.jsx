@@ -22,6 +22,9 @@ export default function TasksScreen() {
   };
 
   const completed = tasks.filter((t) => t.done).length;
+  const progress = completed / tasks.length;
+  const percent = Math.round(progress * 100);
+  const allDone = completed === tasks.length;
 
   return (
     <ScreenLayout scroll>
@@ -30,11 +33,45 @@ export default function TasksScreen() {
         {completed} of {tasks.length} completed
       </p>
 
+      <Card tint="primary" className="tasks-progress-card">
+        <div className="tasks-progress-header">
+          <span className="tasks-progress-title">Progress</span>
+          <span className="tasks-progress-percent">{percent}%</span>
+        </div>
+        <div
+          className="tasks-progress-track"
+          role="progressbar"
+          aria-label="Tasks progress"
+          aria-valuenow={percent}
+          aria-valuemin={0}
+          aria-valuemax={100}
+        >
+          <div
+            className="tasks-progress-fill"
+            style={{ width: `${percent}%` }}
+          />
+        </div>
+      </Card>
+
+      {allDone ? (
+        <Card tint="accent" className="tasks-done-card">
+          <span className="tasks-done-emoji" aria-hidden="true">
+            🎉
+          </span>
+          <p className="tasks-done-title">All tasks complete!</p>
+          <p className="tasks-done-sub">Nice work — you're on a roll.</p>
+        </Card>
+      ) : null}
+
       {tasks.map((task) => (
         <button
           key={task.id}
           type="button"
-          className="tasks-item-button"
+          className={
+            task.done
+              ? 'tasks-item-button tasks-item-button-done'
+              : 'tasks-item-button'
+          }
           aria-pressed={task.done}
           aria-label={task.label}
           onClick={() => toggleTask(task.id)}

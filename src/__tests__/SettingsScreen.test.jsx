@@ -67,4 +67,18 @@ describe('SettingsScreen', () => {
     expect(screen.getByText('Build')).toBeInTheDocument();
     expect(screen.getByText('Expo SDK 56')).toBeInTheDocument();
   });
+
+  it('renders an icon for each preference row', () => {
+    render(<SettingsScreen />);
+    expect(screen.getByText('🔔')).toBeInTheDocument();
+    expect(screen.getByText('🌙')).toBeInTheDocument();
+    expect(screen.getByText('📈')).toBeInTheDocument();
+  });
+
+  it('styles the Build badge with the accent class', () => {
+    render(<SettingsScreen />);
+    const badge = screen.getByText('Expo SDK 56');
+    expect(badge).toHaveClass('settings-info-badge');
+    expect(badge).toHaveClass('settings-info-badge-accent');
+  });
 });

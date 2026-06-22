@@ -1,20 +1,61 @@
 .screen {
   flex: 1;
-  background-color: #f0f4f8;
+  background-color: #f4f6fb;
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 .screen-content {
   width: 100%;
   max-width: 720px;
   margin: 0 auto;
-  padding: 16px 24px 32px;
+  padding: 20px 24px 32px;
   box-sizing: border-box;
   flex: 1;
+  position: relative;
+  z-index: 1;
 }
 
 .screen-scroll {
   overflow-y: auto;
+}
+
+.screen-top-stripe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #4f46e5;
+  opacity: 0.85;
+  z-index: 0;
+}
+
+.screen-decor-large {
+  position: absolute;
+  top: -80px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #e0e7ff;
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.screen-decor-small {
+  position: absolute;
+  top: 120px;
+  left: -60px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background-color: #ccfbf1;
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 0;
 }

@@ -34,11 +34,17 @@ describe('DetailScreen', () => {
     expect(screen.getByText(item.description)).toBeInTheDocument();
   });
 
-  it('renders a Go Back button', () => {
+  it('renders a Go Back button styled with the accent variant', () => {
     renderAt(`/explore/${EXPLORE_ITEMS[0].id}`);
-    expect(
-      screen.getByRole('button', { name: /go back/i })
-    ).toBeInTheDocument();
+    const btn = screen.getByRole('button', { name: /go back/i });
+    expect(btn).toBeInTheDocument();
+    expect(btn).toHaveClass('detail-button-accent');
+  });
+
+  it('renders the item tag for the matched item', () => {
+    const item = EXPLORE_ITEMS[0];
+    renderAt(`/explore/${item.id}`);
+    expect(screen.getByText(item.tag)).toBeInTheDocument();
   });
 
   it('navigates back when Go Back is clicked', async () => {

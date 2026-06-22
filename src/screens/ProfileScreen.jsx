@@ -3,17 +3,23 @@ import Card from '../components/Card';
 import './ProfileScreen.css';
 
 const STATS = [
-  { label: 'Sessions', value: '12' },
-  { label: 'Tasks Done', value: '48' },
-  { label: 'Streak', value: '5 days' },
+  { label: 'Sessions', value: '12', emoji: '📊' },
+  { label: 'Tasks Done', value: '48', emoji: '✅' },
+  { label: 'Streak', value: '5d', emoji: '🔥' },
 ];
 
 export default function ProfileScreen() {
   return (
     <ScreenLayout scroll>
+      <div className="profile-banner" aria-hidden="true">
+        <div className="profile-banner-pattern" />
+      </div>
+
       <Card className="profile-card">
-        <div className="profile-avatar">
-          <span className="profile-avatar-text">LK</span>
+        <div className="profile-avatar-ring">
+          <div className="profile-avatar">
+            <span className="profile-avatar-text">LK</span>
+          </div>
         </div>
         <p className="profile-name">Guest User</p>
         <p className="profile-email">guest@helloapp.dev</p>
@@ -22,7 +28,10 @@ export default function ProfileScreen() {
       <h2 className="profile-section-title">Your Stats</h2>
       <div className="profile-stats-row">
         {STATS.map((stat) => (
-          <Card key={stat.label} className="profile-stat-card">
+          <Card key={stat.label} tint="primary" className="profile-stat-card">
+            <span className="profile-stat-emoji" aria-hidden="true">
+              {stat.emoji}
+            </span>
             <p className="profile-stat-value">{stat.value}</p>
             <p className="profile-stat-label">{stat.label}</p>
           </Card>

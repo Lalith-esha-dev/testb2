@@ -19,7 +19,7 @@ export default function DetailScreen() {
           </p>
           <button
             type="button"
-            className="detail-button"
+            className="detail-button detail-button-accent"
             onClick={() => navigate(-1)}
           >
             <span className="detail-button-text">Go Back</span>
@@ -32,9 +32,12 @@ export default function DetailScreen() {
   return (
     <ScreenLayout>
       <Card className="detail-card">
-        <span className="detail-emoji" aria-hidden="true">
-          {item.emoji}
-        </span>
+        <div className="detail-emoji-wrap" aria-hidden="true">
+          <span className="detail-emoji">{item.emoji}</span>
+        </div>
+        {item.tag ? (
+          <span className="detail-tag">{item.tag}</span>
+        ) : null}
         <h1 className="detail-title">{item.title}</h1>
         <p className="detail-description">{item.description}</p>
         <p className="detail-body">
@@ -44,7 +47,7 @@ export default function DetailScreen() {
         </p>
         <button
           type="button"
-          className="detail-button"
+          className="detail-button detail-button-accent"
           onClick={() => navigate(-1)}
         >
           <span className="detail-button-text">Go Back</span>
